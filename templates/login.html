@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, shrink-to-fit=no">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/styling.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/sunny/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        
+        <title>Jini World</title>
+    </head>
+    
+    <body class="back"> 
+        <div id="container">
+            <ul>
+                <li><a href="#customer_login">Customer</a></li>
+                <li><a href="#staff_login">Reception</a></li>
+            </ul>
+            
+            <div id="customer_login">
+                <form action="" method="post">
+                    {%csrf_token%}
+                    <div class="form-group">
+                        <label>Login ID :</label>
+                    <input type="text" name="USERNAME" id="loginID" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Password : </label>
+                    <input type="password" name="password" maxlength="15" id="customerPass" class="form-control">
+                    </div>
+                    <button>Login</button>
+                </form>
+            </div>
+            
+            <div id="staff_login">
+                <form action="" method="post" >
+                    {%csrf_token%}
+                    <div class="form-group">
+                        <label >Reception ID : </label>
+                <input id="operatorID" type="text" name="USERNAME" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Password : </label>
+                <input type="password" name="password" maxlength="15" id="staffPass" class="form-control">
+                    </div>
+                    <button>Login</button>           
+                </form>
+            </div>
+        </div>
+
+        {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}><h3> {{ message }}</h3></li>
+    {% endfor %}
+</ul>
+        {% endif %}
+        <script>
+            $(function(){
+                $("#container").tabs({
+                    event: "mouseover"
+                });
+                $("button").button({
+                    icons:{
+                        secondary: "ui-icon-circle-triangle-e"
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
