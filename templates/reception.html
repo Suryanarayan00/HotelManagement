@@ -57,7 +57,7 @@
             <h3>Request to Call</h3>
             <table  class="table table-striped table-condensed table-hover">
                 <!--<strong>Status</strong>-->
-                <tr><th><strong>Customer</strong></th><th></th><th><strong>Date Of Check In</strong></th><th><strong>Date Of Check In</strong></th><th><strong>Phone number</strong></th></tr>
+                <tr><th><strong>Customer</strong></th><th><strong>Date Of Check In</strong></th><th><strong>Date Of Check In</strong></th><th><strong>Phone number</strong></th></tr>
                 {%for contact in  customercontact%}
                 <tr><td>{{contact.user}}</td><td>{{contact.datein}}</td><td>{{contact.dateout}}</td><td>{{contact.phone}}</td></tr>
                 {%endfor%}
