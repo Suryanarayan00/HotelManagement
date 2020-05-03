@@ -1,0 +1,76 @@
+.background {
+  background-image: url(../Image/reception_back.jpg);
+  min-height: 500px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+    box-shadow: 10px 10px 60px 2px black;
+}
+
+#content {
+    height: 600px
+}
+
+#hading {
+    border-style: double;
+    border-color: white;
+    color:whitesmoke;
+    box-shadow: 10px 10px 10px 10px black;
+    width: 600px;
+    text-align: center;
+    padding: 30px;
+    position: absolute;
+    left: 400px;
+    top: 100px;
+    font-family: cursive;
+}
+
+
+#welcome_note {
+    text-decoration: underline;
+    text-decoration-style: double;
+    margin-bottom: 50px
+}
+
+#logoutbtn {
+    float: right;
+    text-align: center;
+    padding: 10px;
+    margin-right: 30px
+}
+
+.content_back {
+    background-image: url(../Image/content_back2.jpg);
+    min-height: 6000px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+    height: auto;
+}
+
+h3 {
+    text-align: center;
+    font-family: cursive;
+    text-decoration: underline;
+    text-decoration-style: double;
+    
+}
+
+
+
+td {
+    text-align: center;
+    font-family:monospace;
+}
+
+
+
+tr {
+    text-align: center;
+}
+
+table, th, td {
+    border-style: double
+}

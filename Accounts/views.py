@@ -15,8 +15,8 @@ def home(request):
         if user is not None:
             auth.login(request,user)
             if request.user.is_superuser:
-                messages.info(request, 'logged in')
-                return redirect('home')
+
+                return redirect('Manager/home')
             else:
                 return redirect('Customer/home')
         else:
@@ -25,3 +25,4 @@ def home(request):
 
     else:
         return render(request,'login.html')
+

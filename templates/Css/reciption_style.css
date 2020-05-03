@@ -1,5 +1,5 @@
 .background {
-  background-image: url("reception_back.jpg");
+  background-image: url(../Image/reception_back.jpg);
   min-height: 500px; 
   background-attachment: fixed;
   background-position: center;
@@ -41,7 +41,7 @@
 }
 
 .content_back {
-    background-image: url(content_back2.jpg);
+    background-image: url(../Image/content_back2.jpg);
     min-height: 6000px; 
   background-attachment: fixed;
   background-position: center;

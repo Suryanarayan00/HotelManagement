@@ -42,8 +42,23 @@
                         <p><strong><em>"Popcorn for breakfast! Why not? It's a grain. It's like, grits, but with high self-esteem".</em></strong></p><p><em> So come on then, pull up a chair. Take a taste. Come join us. Life is so endlessly delicious.There is no love sincerer than the love of food.Let food be thy medicine and medicine be thy food.</em></p>
                         <h3 id="today_special">Today's Special </h3>
                         <table>
-                            <tr><th>Breakfast</th><th>Lunch</th><th>Dinner</th></tr>
-                            <tr><td> Masala Cheese French Toast</td><td>Shahi Egg Curry/Urlai Roast</td><td>Chettinad Fish Fry/Dum Aloo Lakhnawi </td></tr>
+                            <tr><th>Breakfast</th>
+                                {%for menus in todayspecialbreakfast%}
+                                <tr><td>{{menus.Breakfast}}</td>
+                                {%endfor%}
+                                <th>Lunch</th>
+                                {%for menus in todayspeciallunch%}
+                                <tr><td>{{menus.Lunch}}</td>
+                                {%endfor%}
+                            <th>Dinner</th>
+                            {%for menus in todayspecialdinner%}
+                                <tr><td>{{menus.Dinner}}</td>
+                                {%endfor%}
+                        </tr>
+                            <!--<tr><td> Masala Cheese French Toast</td><td>Shahi Egg Curry/Urlai Roast</td><td>Chettinad Fish Fry/Dum Aloo Lakhnawi </td></tr>-->
+                            {%for menus in todayspecial%}
+
+                            {%endfor%}
                         </table>
                     </div>
                     <img src="{% static 'Image/hot_food.jpg' %}" alt="Hot food Picture" id="hot_food">
@@ -52,14 +67,40 @@
                 <div id="backs" class="foods">
                     <table>
                         <tr><th>Breakfast</th><th>Lunch</th><th>Dinner</th></tr>
-                        <tr><td> Masala Cheese French Toast</td><td>Shahi Egg Curry/Urlai Roast</td><td>Chettinad Fish Fry/Dum Aloo Lakhnawi </td></tr>
+                        <!--<tr><td> Masala Cheese French Toast</td><td>Shahi Egg Curry/Urlai Roast</td><td>Chettinad Fish Fry/Dum Aloo Lakhnawi </td></tr>-->
+                        <tr><th>Breakfast</th>
+                                {%for menus in menbreakfast%}
+                                <tr><td>{{menus.Breakfast}}</td>
+                                {%endfor%}
+                                <th>Lunch</th>
+                                {%for menus in menulunch%}
+                                <tr><td>{{menus.Lunch}}</td>
+                                {%endfor%}
+                            <th>Dinner</th>
+                            {%for menus in menudinner%}
+                                <tr><td>{{menus.Dinner}}</td>
+                                {%endfor%}
+                        </tr>
                     </table>
                 <!-- <p>content2</p> -->
                     <h3 id="nonveg">Nonveg </h3>
                     <div class="food">
                         <table>
                             <tr><th>Breakfast</th><th>Lunch</th><th>Dinner</th></tr>
-                            <tr><td> Masala Cheese French Toast</td><td>Shahi Egg Curry/Urlai Roast</td><td>Chettinad Fish Fry/Dum Aloo Lakhnawi </td></tr>
+                            <!--<tr><td> Masala Cheese French Toast</td><td>Shahi Egg Curry/Urlai Roast</td><td>Chettinad Fish Fry/Dum Aloo Lakhnawi </td></tr>-->
+                            <tr><th>Breakfast</th>
+                                {%for menus in nonvegbreakfast%}
+                                <tr><td>{{menus.Breakfast}}</td>
+                                {%endfor%}
+                                <th>Lunch</th>
+                                {%for menus in nonveglunch%}
+                                <tr><td>{{menus.Lunch}}</td>
+                                {%endfor%}
+                            <th>Dinner</th>
+                            {%for menus in nonvegdinner%}
+                                <tr><td>{{menus.Dinner}}</td>
+                                {%endfor%}
+                        </tr>
                         </table>
                     </div>
                 </div>
@@ -68,12 +109,15 @@
                 <h4>Check OUT</h4>
                 <div>
                     <p>We hope you had a pleasent stay at the hotel.Do rate and review us on Google. Because :</p><p>"Great hotels have always been social ideas, flawless mirrors to the particular societies they service."</p>
-                    <button id="chechOut" onclick="logout()">Check Out</button>
+                    <form action="logout">
+                        <button id="chechOut" type="submit">Check Out</button>
+                    </form>
                 </div>        
                 <h4>Luggage Service</h4>
                 <div>
                     <p>"We have a passion for luggage - trunks and so on. We have a collection of them and we deliver to you"</p>
-                    <form class="form-inline form-group" id="luggage_serv">
+                    <form class="form-inline form-group" action="luggageservice" id="luggage_serv">
+                        {% csrf_token %}
                         <label for="lform">Room Number</label>
                         <input id="lform" type="text" class="form-control" placeholder="Room Number">
                     </form>
@@ -88,12 +132,13 @@
                 <h4>Room Service</h4>
                 <div>
                     <p>"Your Comfort is our Pleasure !"</p>
-                    <form class="form-horizontal" id="room_service">
-                        <label for="#roomServe">Room Number :</label>
+                    <form class="form-horizontal" action="roomservice" method="post" id="room_service">
+                        {% csrf_token %}
+                        <label>Room Number :</label>
                         <input id="roomServe" type="text" class="form-control" placeholder="Enter Room Number" value="">
                         <br>
-                        <label for="#optionsServices">Service :</label>
-                        <select class="form-control" id="optionsServices">
+                        <label >Service :</label>
+                        <select class="form-control" name="service" id="optionsServices">
                             <option selected="true" disabled="disabled">Select Option</option>
                             <option>Room Cleaning</option>
                             <option>Electrician</option>
@@ -103,9 +148,8 @@
                             <option>Atendee Female</option>
                             <option>Attendee Male</option>
                         </select>
-                        
+                        <button id="serv_request" type="submit">Request Service</button>
                     </form><br>
-                    <button id="serv_request">Request Service</button>
                     
         <div id="confirmation" title="Submit Request">
             <p><span class="ui-icon ui-icon-alert"></span>Hey are you sure you want to Continue ?</p>
@@ -115,25 +159,26 @@
             </div>
             <div id="contact">
                 <h4 id="contactRequest">Contact Request</h4>
-                <form id="contact_form">
+                <form id="contact_form" action="contact" method="post">
+                    {% csrf_token %}
                     <div class="form-inline form-group localAlign">
-                        <label for="#room">Room Number :</label>
-                    <input id="room" type="text" class="form-control" placeholder="Enter Room Number">
+                        <label >Room Number :</label>
+                    <input id="room" type="text" required="" name="room" class="form-control" placeholder="Enter Room Number">
                     </div>
                     <div class="form-inline form-group localAlign">
-                        <label for="#join">Date of Check IN : </label>
-                        <input id="join" class="form-control" placeholder="Enter Date of Check IN">
+                        <label >Date of Check IN : </label>
+                        <input id="join" name="datein" required=""  class="form-control" placeholder="Enter Date of Check IN">
                     </div>
                     <div class="form-inline form-group localAlign">
-                        <label for="#leave">Date of Check OUT : </label>
-                        <input id="leave" class="form-control" placeholder="Enter Date of Check OUT">
+                        <label >Date of Check OUT : </label>
+                        <input id="leave" required=""  name="dateout" class="form-control" placeholder="Enter Date of Check OUT">
                     </div>
                     <div class="form-inline localAlign">
                         <label>Phone-Number :</label>
-                        <input id="phNo" type="text" maxlength="10" class="form-control" placeholder="Enter 10 - digits Phone Number">
+                        <input id="phNo" type="text" required=""  name="phone" maxlength="10" class="form-control" placeholder="Enter 10 - digits Phone Number">
                     </div>
+                    <div id="divbutton"><button id="contactButton" type="submit">Submit</button></div>
                 </form>
-                <div id="divbutton"><button id="contactButton" type="submit">Submit</button>
                 </div>
                 
                 <div id="confirm_contact" title="Submit Request">
@@ -231,13 +276,15 @@
                     showAnim: "drop",
                     changeYear: true,
                     numberOfMonths:1,
-                    changeMonth: true
+                    changeMonth: true,
+                    dateFormat: 'yy-mm-dd'
                 });
                 $("#leave").datepicker({
                     showAnim: "drop",
                     changeYear: true,
                     numberOfMonths:1,
-                    changeMonth: true
+                    changeMonth: true,
+                    dateFormat: 'yy-mm-dd'
                 });
                 $("button").button();
             })
