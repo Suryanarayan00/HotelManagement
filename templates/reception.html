@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+        <link type="text/css" rel="stylesheet" href="reciption_style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/dot-luv/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <title>Staff Host for Dost</title>
+    </head>
+
+    <body>
+        <div class="background">
+            <div id="hading">
+                <h1 id="welcome_note">WELCOME</h1>
+            <h2> "Make your guest feel like they are at home, even you wish they were"</h2>
+            </div>
+        </div>
+        <div class="content_back">
+        <div id="confirmation" title="Welcome to the Page">
+            <p><span class="ui-icon ui-icon-alert"></span>Welcome ! Lets have a Great Day Ahead!!</p>
+                </div>
+            <br>
+            <br>
+        <div id="content">
+            <h3>Check IN/OUT Details</h3>
+            <table class="table table-striped table-condensed table-hover">
+                <tr><th><strong>Room number</strong></th><th><strong>Check Status</strong></th></tr>
+                <tr><td>Smaple</td><td>Smaple</td></tr>
+            </table><br>
+            <h3>Luggage Service</h3>
+            <table class="table table-striped table-condensed table-hover">
+                 <tr><th><strong>Room number</strong></th><th><strong>Status</strong></th></tr>
+                <tr><td>Sample</td><td>Sample</td></tr>
+            </table><br>
+            <h3>Room Service</h3>
+            <table class="table table-striped table-condensed table-hover">
+                <tr><th><strong>Room number</strong></th><th><strong>Service Requested</strong></th></tr>
+                <tr><td>Sample</td><td>Sample</td></tr>
+            </table><br>
+            <h3>Table Booking </h3>
+            <table  class="table table-striped table-condensed table-hover">
+                <tr><th><strong>Room number</strong></th><th><strong>Booking Request</strong></th></tr>
+                <tr><td>Sample</td><td>Sample</td></tr>
+            </table><br>
+            <h3>Request to Call</h3>
+            <table  class="table table-striped table-condensed table-hover">
+                <tr><th><strong>Room number</strong></th><th><strong>Status</strong></th><th><strong>Date Of Check In</strong></th><th><strong>Date Of Check In</strong></th><th><strong>Phone number</strong></th></tr>
+                <tr><td>Sample</td><td>Sample</td><td>Sample</td><td>Sample</td></tr>
+            </table>
+            <br><br><br><br><br><br><br>
+         <div id="btn"><button id="logoutbtn">LOGOUT</button></div>
+        </div>
+
+        </div>
+           
+        <script>
+            $(function(){
+                $("#confirmation").dialog({
+               autoOpen: true,
+               buttons: {
+                   "Close": function(){
+                    $("#confirmation").dialog("close")
+                   }
+               }
+           });
+                $("#logoutbtn").button();
+            })
+        </script>
+    </body>
+</html>
