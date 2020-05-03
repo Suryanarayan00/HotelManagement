@@ -118,25 +118,17 @@
                     <p>"We have a passion for luggage - trunks and so on. We have a collection of them and we deliver to you"</p>
                     <form class="form-inline form-group" action="luggageservice" id="luggage_serv">
                         {% csrf_token %}
-                        <label for="lform">Room Number</label>
-                        <input id="lform" type="text" class="form-control" placeholder="Room Number">
                     </form>
                     <div id="luggage_button">
                         <button type="submit" id="lug_but">Request Service</button>
                     </div>
-                    
-                <div id="confirm_lug" title="Submit Request">
-                    <p><span class="ui-icon ui-icon-alert"></span>Hey are you sure you want to Continue ?</p>
-                </div>
+        
                 </div>
                 <h4>Room Service</h4>
                 <div>
                     <p>"Your Comfort is our Pleasure !"</p>
                     <form class="form-horizontal" action="roomservice" method="post" id="room_service">
                         {% csrf_token %}
-                        <label>Room Number :</label>
-                        <input id="roomServe" type="text" class="form-control" placeholder="Enter Room Number" value="">
-                        <br>
                         <label >Service :</label>
                         <select class="form-control" name="service" id="optionsServices">
                             <option selected="true" disabled="disabled">Select Option</option>
@@ -147,13 +139,9 @@
                             <option>Laundary</option>
                             <option>Atendee Female</option>
                             <option>Attendee Male</option>
-                        </select>
+                        </select><br>
                         <button id="serv_request" type="submit">Request Service</button>
                     </form><br>
-                    
-        <div id="confirmation" title="Submit Request">
-            <p><span class="ui-icon ui-icon-alert"></span>Hey are you sure you want to Continue ?</p>
-        </div>
                 </div>
 
             </div>
@@ -180,86 +168,10 @@
                     <div id="divbutton"><button id="contactButton" type="submit">Submit</button></div>
                 </form>
                 </div>
-                
-                <div id="confirm_contact" title="Submit Request">
-                    <p><span class="ui-icon ui-icon-alert"></span>Hey are you sure you want to Continue ?</p>
-                </div>
             </div>
         </div>
-        </div>
         
-        
-        
-        <script>  
-            $("#confirmation").dialog({
-                modal: true,
-                autoOpen: false,
-                buttons:{
-                    "Yes,proceeed": function(){
-                        document.getElementById("room_service").reset();
-                        window.alert("Your request is Sumbitted. We will get back to you shortly");
-                    $("#confirmation").dialog("close");
-                    },
-                cancel : function(){
-                    
-                    $("#confirmation").dialog("close");
-                }
-                }
-            });
-            
-            
-            $("#serv_request").click(function(){
-                $("#confirmation").dialog("open");
-            });
-            
-            $("#confirm_lug").dialog({
-                modal: true,
-                autoOpen: false,
-                buttons:{
-                    "Yes,proceeed": function(){
-                        document.getElementById("luggage_serv").reset();
-                        
-                        window.alert("Your request is Sumbitted. We will get back to you shortly");
-                        
-                    $("#confirm_lug").dialog("close");
-                    },
-                cancel : function(){
-                    
-                    $("#confirm_lug").dialog("close");
-                }
-                }
-            });
-            $("#lug_but").click(function(){
-                $("#confirm_lug").dialog("open");
-            });
-            
-            
-            $("#confirm_contact").dialog({
-                modal: true,
-                autoOpen: false,
-                buttons:{
-                    "Yes,proceeed": function(){
-                        document.getElementById("contact_form").reset();
-                        
-                        window.alert("Your request is Sumbitted. We will get back to you shortly");
-                        
-                    $("#confirm_contact").dialog("close");
-                    },
-                cancel : function(){
-                    
-                    $("#confirm_contact").dialog("close");
-                }
-                }
-            });
-            $("#contactButton").click(function(){
-                $("#confirm_contact").dialog("open");
-            });
-            
-              
-    
-            
-              
-            
+        <script>               
             
 //Jquery Code here            
             $(function(){
