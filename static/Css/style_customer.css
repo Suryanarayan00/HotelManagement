@@ -1,0 +1,164 @@
+#toggleBar {
+    width: 100%
+}
+
+#first {
+    margin-left: 420px;
+}
+
+#intro {
+    text-align: center;
+}
+
+#lform {
+    width: 150px;
+    margin:0px 20px 0px 20px;
+}
+
+#optionsServices {
+    width: 300px
+}
+
+#roomServe {
+    width: 300px;
+}
+
+#contactRequest {
+    text-align: center;
+    padding-bottom: 50px
+}
+
+#room {
+    width: 300px;
+    margin-left: 60px;
+}
+
+#join {
+    width: 300px;
+    margin-left: 38px;
+}
+
+#leave {
+    width: 300px;
+    margin-left: 20px
+}
+
+#phNo {
+    width: 300px;
+    margin-left: 56px
+}
+
+
+
+.localAlign {
+    padding: 0px 0px 30px 300px
+}
+
+
+
+#divbutton {
+    padding-left: 600px
+}
+
+a{
+    transition: font-size 1s ease;
+}
+
+a:hover {
+    font-size: 25px;
+}
+
+
+
+
+
+#luggage_button {
+    margin-left: 120px
+}
+
+
+
+.food {
+    width: 600px;
+    text-align: center;
+    float: left;
+    border-style: double;
+    color:#ffffff;
+    
+}
+
+#today_special {
+    text-decoration: underline;
+    text-decoration-style: double;
+    font-family: monospace;
+}
+
+#special_head, #menu_head {
+    font-family: cursive;
+    font-size: 30px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+#back {
+    background-image: url(../Image/menu_back_2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#hot_food {
+    width: 400px;
+    float: right;
+    border-radius: 50%;
+    margin-right: 90px;
+    box-shadow: 10px 10px 10px 10px #0b0808
+}
+
+.menutop {
+    height: 400px;
+    width: 100%;
+    background-image: url(../Image/menutop2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: none;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+
+h1{
+    color: white;
+    font-family: cursive;
+    text-align: center;
+}
+
+
+
+#subhead1 {
+    color: white;
+    font-family: cursive;
+    text-align: center;
+}
+
+
+
+#subHead {
+    po
+}
+
+#topHead {
+    position: absolute;
+    border-style: double;
+    border-color: white;
+    width: 500px;
+    left: 400px;
+    top: 100px
+}

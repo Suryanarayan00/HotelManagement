@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
-        <link type="text/css" rel="stylesheet" href="style_customer.css">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/style_customer.css' %}">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -45,12 +46,23 @@
                             <tr><td> Masala Cheese French Toast</td><td>Shahi Egg Curry/Urlai Roast</td><td>Chettinad Fish Fry/Dum Aloo Lakhnawi </td></tr>
                         </table>
                     </div>
-                    <img src="hot_food.jpg" alt="Hot food Picture" id="hot_food">
+                    <img src="{% static 'Image/hot_food.jpg' %}" alt="Hot food Picture" id="hot_food">
                 </div>  
                 <h2 id="menu_head">Menu</h2>
-                <div>
-                <p>content2</p>
-                </div>                
+                <div id="backs" class="foods">
+                    <table>
+                        <tr><th>Breakfast</th><th>Lunch</th><th>Dinner</th></tr>
+                        <tr><td> Masala Cheese French Toast</td><td>Shahi Egg Curry/Urlai Roast</td><td>Chettinad Fish Fry/Dum Aloo Lakhnawi </td></tr>
+                    </table>
+                <!-- <p>content2</p> -->
+                    <h3 id="nonveg">Nonveg </h3>
+                    <div class="food">
+                        <table>
+                            <tr><th>Breakfast</th><th>Lunch</th><th>Dinner</th></tr>
+                            <tr><td> Masala Cheese French Toast</td><td>Shahi Egg Curry/Urlai Roast</td><td>Chettinad Fish Fry/Dum Aloo Lakhnawi </td></tr>
+                        </table>
+                    </div>
+                </div>
             </div>
             <div id="serve">
                 <h4>Check OUT</h4>

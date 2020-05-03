@@ -24,7 +24,7 @@
             
             <div id="customer_login">
                 <form action="" method="post">
-                    {%csrf_token%}
+                    {% csrf_token %}
                     <div class="form-group">
                         <label>Login ID :</label>
                     <input type="text" name="USERNAME" id="loginID" class="form-control">
@@ -39,7 +39,7 @@
             
             <div id="staff_login">
                 <form action="" method="post" >
-                    {%csrf_token%}
+                    {% csrf_token %}
                     <div class="form-group">
                         <label >Reception ID : </label>
                 <input id="operatorID" type="text" name="USERNAME" class="form-control">

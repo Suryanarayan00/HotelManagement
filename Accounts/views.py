@@ -5,6 +5,8 @@ from django.contrib import messages
 # Create your views here.
 
 def home(request):
+    if request.user:
+        auth.logout(request)
     if request.method=='POST':
         username = request.POST['USERNAME']
         password = request.POST['password']
@@ -12,8 +14,11 @@ def home(request):
 
         if user is not None:
             auth.login(request,user)
-            messages.info(request, 'logged in')
-            return redirect('home')
+            if request.user.is_superuser:
+                messages.info(request, 'logged in')
+                return redirect('home')
+            else:
+                return redirect('Customer/home')
         else:
             messages.info(request,'invalid credentiall')
             return redirect('home')

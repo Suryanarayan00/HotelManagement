@@ -108,7 +108,7 @@ a:hover {
 
 
 #back {
-    background-image: url(menu_back_2.jpg);
+    background-image: url(../Image/menu_back_2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -124,7 +124,7 @@ a:hover {
 .menutop {
     height: 400px;
     width: 100%;
-    background-image: url(menutop2.jpg);
+    background-image: url(../Image/menutop2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     margin-bottom: none;

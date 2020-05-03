@@ -18,13 +18,13 @@
     <body class="back"> 
         <div id="container">
             <ul>
-                <li><a href="#customer_login">Customer</a></li>
-                <li><a href="#staff_login">Reception</a></li>
+                <li><a href="#customer_login" id="customer_logic">Customer</a></li>
+                <li><a href="#staff_login" id="staff_logic">Reception</a></li>
             </ul>
             
             <div id="customer_login">
                 <form action="" method="post">
-                    {%csrf_token%}
+                    {% csrf_token %}
                     <div class="form-group">
                         <label>Login ID :</label>
                     <input type="text" name="USERNAME" id="loginID" class="form-control">
@@ -39,7 +39,7 @@
             
             <div id="staff_login">
                 <form action="" method="post" >
-                    {%csrf_token%}
+                    {% csrf_token %}
                     <div class="form-group">
                         <label >Reception ID : </label>
                 <input id="operatorID" type="text" name="USERNAME" class="form-control">
@@ -61,6 +61,25 @@
 </ul>
         {% endif %}
         <script>
+//Code for Javascript
+
+             var logic = false;
+                     
+           //when the user goes for staff login
+            document.getElementById("staff_logic").onclick = function(){
+                logic = true;
+                }
+        
+            //user goes for customer again
+            document.getElementById("customer_logic").onclick = function(){
+                logic = false;                
+            }
+
+
+
+
+//Code for jQuery
+
             $(function(){
                 $("#container").tabs({
                     event: "mouseover"
