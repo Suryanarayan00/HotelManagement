@@ -3,35 +3,24 @@ from django.conf import settings
 # Create your models here.
 
 
-class TodaySpecialBreakfast(models.Model):
+class TodaySpecial(models.Model):
     Breakfast = models.CharField(max_length=100, default=None)
-
-class TodaySpecialLunch(models.Model):
     Lunch = models.CharField(max_length=100, default=None)
-
-class TodaySpecialDinner(models.Model):
     Dinner = models.CharField(max_length=100, default=None)
 
-class MenuBreakfast(models.Model):
+class Menu(models.Model):
     Breakfast = models.CharField(max_length=100, default=None)
-    Price = models.IntegerField()
-
-class MenuLunch(models.Model):
+    PriceBreakfast = models.IntegerField()
     Lunch = models.CharField(max_length=100, default=None)
-    Price = models.IntegerField()
-
-class MenuDinner(models.Model):
+    PriceLunch = models.IntegerField()
     Dinner = models.CharField(max_length=100, default=None)
-    Price = models.IntegerField()
+    PriceDinner = models.IntegerField()
 
-class NonvegBreakfast(models.Model):
+
+class Nonveg(models.Model):
     Breakfast = models.CharField(max_length=100, default=None)
     Price = models.IntegerField()
-
-class NonvegLunch(models.Model):
     Lunch = models.CharField(max_length=100, default=None)
     Price = models.IntegerField()
-
-class NonvegDinner(models.Model):
     Dinner = models.CharField(max_length=100, default=None)
     Price = models.IntegerField()

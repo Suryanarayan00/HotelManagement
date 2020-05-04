@@ -34,7 +34,10 @@
             <div id="intro">
                 <h3>Welcome !!!</h3>
                 <p>We at Hotel Jini,</p>
+                <form action="Logout" method="post">
+                    {% csrf_token %}
                 <button id="logoutbtn">LOGOUT</button>
+                </form>
             </div>
             <div id="hotel" class="hotel">
                 <h3 id="special_head">Today's Special</h3>
@@ -43,23 +46,10 @@
                         <p><strong><em>"Popcorn for breakfast! Why not? It's a grain. It's like, grits, but with high self-esteem".</em></strong></p><p><em> So come on then, pull up a chair. Take a taste. Come join us. Life is so endlessly delicious.There is no love sincerer than the love of food.Let food be thy medicine and medicine be thy food.</em></p>
                         <h3 id="today_special">Today's Special </h3>
                         <table>
-                            <tr><th>Breakfast</th>
-                                {%for menus in todayspecialbreakfast%}
-                                <tr><td>{{menus.Breakfast}}</td>
-                                {%endfor%}
-                                <th>Lunch</th>
-                                {%for menus in todayspeciallunch%}
-                                <tr><td>{{menus.Lunch}}</td>
-                                {%endfor%}
-                            <th>Dinner</th>
-                            {%for menus in todayspecialdinner%}
-                                <tr><td>{{menus.Dinner}}</td>
-                                {%endfor%}
-                        </tr>
-                            <!--<tr><td> Masala Cheese French Toast</td><td>Shahi Egg Curry/Urlai Roast</td><td>Chettinad Fish Fry/Dum Aloo Lakhnawi </td></tr>-->
-                            {%for menus in todayspecial%}
-
+                            {% for menus in todayspecial%}
+                            <tr><td> {{menus.Breakfast}}</td><td>{{menus.Lunch}}</td><td>{{menus.Dinner}}</td></tr>
                             {%endfor%}
+                            <!--<tr><td> Masala Cheese French Toast</td><td>Shahi Egg Curry/Urlai Roast</td><td>Chettinad Fish Fry/Dum Aloo Lakhnawi </td></tr>-->
                         </table>
                     </div>
                     <img src="{% static 'Image/hot_food.jpg' %}" alt="Hot food Picture" id="hot_food">
@@ -67,41 +57,19 @@
                 <h2 id="menu_head">Menu</h2>
                 <div id="backs" class="foods">
                     <table>
-                        <tr><th>Breakfast</th><th>Lunch</th><th>Dinner</th></tr>
+                        {% for menus in menu%}
+                            <tr><td> {{menus.Breakfast}}</td><td>{{menus.Lunch}}</td><td>{{menus.Dinner}}</td></tr>
+                            {%endfor%}
                         <!--<tr><td> Masala Cheese French Toast</td><td>Shahi Egg Curry/Urlai Roast</td><td>Chettinad Fish Fry/Dum Aloo Lakhnawi </td></tr>-->
-                        <tr><th>Breakfast</th>
-                                {%for menus in menbreakfast%}
-                                <tr><td>{{menus.Breakfast}}</td>
-                                {%endfor%}
-                                <th>Lunch</th>
-                                {%for menus in menulunch%}
-                                <tr><td>{{menus.Lunch}}</td>
-                                {%endfor%}
-                            <th>Dinner</th>
-                            {%for menus in menudinner%}
-                                <tr><td>{{menus.Dinner}}</td>
-                                {%endfor%}
-                        </tr>
                     </table>
                 <!-- <p>content2</p> -->
                     <h3 id="nonveg">Nonveg </h3>
                     <div class="food">
                         <table>
-                            <tr><th>Breakfast</th><th>Lunch</th><th>Dinner</th></tr>
+                            {% for menus in nonveg%}
+                            <tr><td> {{menus.Breakfast}}</td><td>{{menus.Lunch}}</td><td>{{menus.Dinner}}</td></tr>
+                            {%endfor%}
                             <!--<tr><td> Masala Cheese French Toast</td><td>Shahi Egg Curry/Urlai Roast</td><td>Chettinad Fish Fry/Dum Aloo Lakhnawi </td></tr>-->
-                            <tr><th>Breakfast</th>
-                                {%for menus in nonvegbreakfast%}
-                                <tr><td>{{menus.Breakfast}}</td>
-                                {%endfor%}
-                                <th>Lunch</th>
-                                {%for menus in nonveglunch%}
-                                <tr><td>{{menus.Lunch}}</td>
-                                {%endfor%}
-                            <th>Dinner</th>
-                            {%for menus in nonvegdinner%}
-                                <tr><td>{{menus.Dinner}}</td>
-                                {%endfor%}
-                        </tr>
                         </table>
                     </div>
                 </div>
@@ -122,15 +90,11 @@
                     <div id="luggage_button">
                         <button type="submit" id="lug_but">Request Service</button>
                     </div>
-<<<<<<< HEAD
                     </form>
-=======
                     
                     <div id="confirm_lug" title="Submit Request">
                     <p><span class="ui-icon ui-icon-alert"></span>Hey are you sure you want to Continue ?</p>
                 </div>
-        
->>>>>>> 3a5b72e0102f0441f81107c71ac6392ec73f1962
                 </div>
                 <h4>Room Service</h4>
                 <div>

@@ -1,28 +1,28 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
-from Manager.models import TodaySpecialDinner, TodaySpecialLunch, TodaySpecialBreakfast, NonvegBreakfast, NonvegLunch, NonvegDinner,MenuBreakfast, MenuDinner, MenuLunch
+from Manager.models import TodaySpecial, Menu, Nonveg
 from .models import CustomerContact, LuggageService, RoomService, CheckoutDetail
 
 def home(request):
-    todayspecialbreakfast = TodaySpecialBreakfast.objects.all()
-    todayspecialdinner =TodaySpecialDinner.objects.all()
-    todayspeciallunch =TodaySpecialLunch.objects.all()
-    nonvegbreakfast = NonvegBreakfast.objects.all()
-    nonveglunch = NonvegLunch.objects.all()
-    nonvegdinner = NonvegDinner.objects.all()
-    menbreakfast = MenuBreakfast.objects.all()
-    menudinner = MenuDinner.objects.all()
-    menulunch = MenuLunch.objects.all()
-    return render(request, 'customer.html', {'todayspecialbreakfast':todayspecialbreakfast , 'todayspecialdinner': todayspecialdinner, 'todayspeciallunch': todayspeciallunch, 'nonvegbreakfast':nonvegbreakfast , 'nonveglunch':nonveglunch , 'nonvegdinner':nonvegdinner , 'menbreakfast':menbreakfast , 'menudinner':menudinner , 'menulunch': menulunch, })
+    todayspecial = TodaySpecial.objects.all()
+    menu = Menu.objects.all()
+    nonveg = Nonveg.objects.all()
+    return render(request, 'customer.html', {'todayspecial':todayspecial , 'menu': menu, 'nonveg': nonveg })
 
 def logout(request):
-        user = request.user
-        checkoutdetail = CheckoutDetail(user=user)
-        checkoutdetail.save()
-        auth.logout(request)
-        return redirect('/')
+    user = request.user
+    checkoutdetail = CheckoutDetail(user=user)
+    checkoutdetail.save()
+    user = User.objects.filter(id=request.user.pk).delete()
+    User.objects.filter(pk=request.user.pk).update(is_active=False, email=None)
+    # auth.logout(request)
+    return redirect('/')
 # Create your views here.
+
+def Logout(request):
+    auth.logout(request)
+    return redirect('/')
 
 def contact(request):
     # DateField
