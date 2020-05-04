@@ -116,13 +116,12 @@
                 <h4>Luggage Service</h4>
                 <div>
                     <p>"We have a passion for luggage - trunks and so on. We have a collection of them and we deliver to you"</p>
-                    <form class="form-inline form-group" action="luggageservice" id="luggage_serv">
+                    <form class="form-inline form-group" action="luggageservice" method = "post" id="luggage_serv">
                         {% csrf_token %}
-                    </form>
                     <div id="luggage_button">
                         <button type="submit" id="lug_but">Request Service</button>
                     </div>
-        
+                    </form>
                 </div>
                 <h4>Room Service</h4>
                 <div>

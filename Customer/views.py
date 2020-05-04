@@ -49,7 +49,7 @@ def roomservice(request):
 def luggageservice(request):
     if request.method == 'POST':
         user = request.user
-        luggage = luggageservice(user=user)
+        luggage = LuggageService(user=user)
         luggage.save()
         return redirect('Customer/home')
     else:
