@@ -51,8 +51,10 @@
             </table><br>
             <h3>Table Booking </h3>
             <table  class="table table-striped table-condensed table-hover">
-                <tr><th><strong>Room number</strong></th><th><strong>Booking Request</strong></th></tr>
-                <tr><td>Sample</td><td>Sample</td></tr>
+                <tr><th><strong>Room number</strong></th><th><strong>Breakfast</strong></th><th><strong>Dinner</strong></th><th><strong>Lunch</strong></th></tr>
+                {%for details in foodservice%}
+                <tr><td>{{details.user}}</td><td>{{details.Breakfast}}</td><td>{{details.Dinner}}</td><td>{{details.Lunch}}</td></tr>
+                {%endfor%}
             </table><br>
             <h3>Request to Call</h3>
             <table  class="table table-striped table-condensed table-hover">

@@ -99,19 +99,16 @@ a:hover {
     text-align: center;
 }
 
-
-
-
-
-
-
-
-
 #back {
     background-image: url(../Image/menu_back_2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+#table tr:not(:first-child){
+    cursor: pointer;transition: all .25s ease-in-out;
+}
+#table tr:not(:first-child):hover{background-color: #ddd;}
 
 #hot_food {
     width: 400px;

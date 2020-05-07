@@ -26,3 +26,8 @@ def home(request):
     else:
         return render(request,'login.html')
 
+def changeurl(request):
+    if request.method=="POST":
+        return redirect('Customer/home')
+    return render(request, 'submitrequest.html')
+        # return redirect('Customer/home')

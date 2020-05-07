@@ -45,12 +45,35 @@
                     <div class="food">
                         <p><strong><em>"Popcorn for breakfast! Why not? It's a grain. It's like, grits, but with high self-esteem".</em></strong></p><p><em> So come on then, pull up a chair. Take a taste. Come join us. Life is so endlessly delicious.There is no love sincerer than the love of food.Let food be thy medicine and medicine be thy food.</em></p>
                         <h3 id="today_special">Today's Special </h3>
-                        <table>
+                        <table id="table" border="1">
+                            <tr><th>Breakfast</th><th>Lunch</th><th>Dinner</th></tr>
                             {% for menus in todayspecial%}
                             <tr><td> {{menus.Breakfast}}</td><td>{{menus.Lunch}}</td><td>{{menus.Dinner}}</td></tr>
                             {%endfor%}
                             <!--<tr><td> Masala Cheese French Toast</td><td>Shahi Egg Curry/Urlai Roast</td><td>Chettinad Fish Fry/Dum Aloo Lakhnawi </td></tr>-->
                         </table>
+                        <h3>Today's Special Selected</h3>
+                        <form action="food" method="post">
+                            {% csrf_token %}
+                        Breakfast:<input type="text" name="Breakfast" id="Breakfast">
+                        Lunch:<input type="text" name="Lunch" id="Lunch">
+                        Dinner:<input type="text" name="Dinner" id="Dinner">
+                            <button type="submit" >ORDER</button>
+                        </form>
+        <script>
+            var table = document.getElementById('table');
+
+            for(var i = 1; i < table.rows.length; i++)
+            {
+                table.rows[i].onclick = function()
+                {
+                     //rIndex = this.rowIndex;
+                     document.getElementById("Breakfast").value = this.cells[0].innerHTML;
+                     document.getElementById("Lunch").value = this.cells[1].innerHTML;
+                     document.getElementById("Dinner").value = this.cells[2].innerHTML;
+                };
+            }
+        </script>
                     </div>
                     <img src="{% static 'Image/hot_food.jpg' %}" alt="Hot food Picture" id="hot_food">
                 </div>  
@@ -112,8 +135,8 @@
                             <option>Atendee Female</option>
                             <option>Attendee Male</option>
                         </select><br>
+                        <button id="serv_request" type="submit">Request Service</button>
                     </form><br>
-                    <button id="serv_request" type="submit">Request Service</button>
                     <div id="confirmation" title="Submit Request">
                         <p><span class="ui-icon ui-icon-alert"></span>Hey are you sure you want to Continue ?</p>
                     </div>
@@ -169,8 +192,8 @@
             $("#serv_request").click(function(){
                 $("#confirmation").dialog("open");
             });
-            
-            
+
+
             
             $("#confirm_lug").dialog({
                 modal: true,

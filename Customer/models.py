@@ -22,3 +22,11 @@ class RoomService(models.Model):
 class CheckoutDetail(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     datetimenow = models.DateTimeField(auto_now_add=True)
+
+
+class FoodService(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    Breakfast = models.TextField(max_length=100,default=None)
+    Dinner = models.TextField(max_length=100, default=None)
+    Lunch = models.TextField(max_length=100, default=None)
+    datetimenow = models.DateTimeField(auto_now_add=True)
